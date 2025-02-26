@@ -4,21 +4,60 @@ def get_ingredients():
     ingredient = input('Enter a list of ingredients separated by commas: ')
     ingredient_list = [item.strip() for item in ingredient.split(',')]
     print(f'You want to use: {ingredient_list}')
+    return ingredient_list
 
-search_list = get_ingredients()
-
-def search_meals(ingredients):
-    options = []
+def search_meals_ingredients(ingredients):
+    options_ingredients = []
 
     for meal, details in meals.items():
         ingredients = details.get('ingredients', [])
         for ingredient in search_list:
             if ingredient in ingredients:
-                options.append(meal)
+                options_ingredients.append(meal)
                 break
 
-    return options
+    return options_ingredients
 
-all_meal_options = search_meals(search_list)
+def get_required_difficulty():
+    required_difficulty = input('Enter the difficulty level you need (easy, medium, hard): ')
+    print(f'The required difficulty is: {required_difficulty}')
+    return required_difficulty
 
-print(f'You could make: {all_meal_options}')
+def search_meals_difficulty(difficulty_selected, meal_options):
+    options_difficulty = {}
+
+    for meal in meal_options:
+        difficulty = meals.get(meal, {}).get('difficulty', 'Unknown')
+        if difficulty == difficulty_selected:
+            options_difficulty[meal] = difficulty
+        
+    return options_difficulty
+
+def get_required_speed():
+    required_speed = input('Enter the speed you need (quick, medium, slow): ')
+    print(f'The required speed is: {required_speed}')
+    return required_speed
+
+def search_meals_speed(speed_selected, meal_options):
+    options_speed = {}
+
+    for meal in meal_options:
+        speed = meals.get(meal, {}).get('speed', 'Unknown')
+        if speed == speed_selected:
+            options_speed[meal] = speed
+
+    return options_speed
+
+search_list = get_ingredients()
+
+required_difficulty = get_required_difficulty()
+
+required_speed = get_required_speed()
+
+all_meals_ingredients = search_meals_ingredients(search_list)
+
+all_meals_difficulty = search_meals_difficulty(required_difficulty, all_meals_ingredients)
+
+all_meals_speed = search_meals_speed(required_speed, all_meals_difficulty)
+
+print(f'You could make: {all_meals_speed}')
