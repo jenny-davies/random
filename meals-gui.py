@@ -18,8 +18,10 @@ def main():
     difficulty1 = difficulty.get()
     speed1 = speed.get()
 
+    ingredients1_list = [ingredients1.strip() for i in ingredients1.split(',')]
+
     # search for ingredients
-    all_meals_ingredients = search_meals_ingredients(ingredients = ingredients1)
+    all_meals_ingredients = search_meals_ingredients(ingredients = ingredients1_list)
 
     # filter by difficulty
     all_meals_difficulty = search_meals_difficulty(difficulty_selected = difficulty1, 

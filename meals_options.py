@@ -47,17 +47,3 @@ def search_meals_speed(speed_selected, meal_options):
             options_speed[meal] = speed
 
     return options_speed
-
-#search_list = get_ingredients()
-
-#required_difficulty = get_required_difficulty()
-
-#required_speed = get_required_speed()
-
-#all_meals_ingredients = search_meals_ingredients(search_list)
-
-#all_meals_difficulty = search_meals_difficulty(required_difficulty, all_meals_ingredients)
-
-#all_meals_speed = search_meals_speed(required_speed, all_meals_difficulty)
-
-#print(f'You could make: {all_meals_speed}')
