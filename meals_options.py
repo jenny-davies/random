@@ -11,7 +11,7 @@ def search_meals_ingredients(ingredients):
 
     for meal, details in meals.items():
         ingredients = details.get('ingredients', [])
-        for ingredient in search_list:
+        for ingredient in ingredients:
             if ingredient in ingredients:
                 options_ingredients.append(meal)
                 break
@@ -48,16 +48,16 @@ def search_meals_speed(speed_selected, meal_options):
 
     return options_speed
 
-search_list = get_ingredients()
+#search_list = get_ingredients()
 
-required_difficulty = get_required_difficulty()
+#required_difficulty = get_required_difficulty()
 
-required_speed = get_required_speed()
+#required_speed = get_required_speed()
 
-all_meals_ingredients = search_meals_ingredients(search_list)
+#all_meals_ingredients = search_meals_ingredients(search_list)
 
-all_meals_difficulty = search_meals_difficulty(required_difficulty, all_meals_ingredients)
+#all_meals_difficulty = search_meals_difficulty(required_difficulty, all_meals_ingredients)
 
-all_meals_speed = search_meals_speed(required_speed, all_meals_difficulty)
+#all_meals_speed = search_meals_speed(required_speed, all_meals_difficulty)
 
-print(f'You could make: {all_meals_speed}')
+#print(f'You could make: {all_meals_speed}')
