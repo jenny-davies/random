@@ -6,13 +6,13 @@ def get_ingredients():
     print(f'You want to use: {ingredient_list}')
     return ingredient_list
 
-def search_meals_ingredients(ingredients):
+def search_meals_ingredients(user_ingredients):
     options_ingredients = []
 
     for meal, details in meals.items():
-        ingredients = details.get('ingredients', [])
-        for ingredient in ingredients:
-            if ingredient in ingredients:
+        meal_ingredients = details.get('ingredients', [])
+        for ingredient in meal_ingredients:
+            if ingredient in user_ingredients:
                 options_ingredients.append(meal)
                 break
 
