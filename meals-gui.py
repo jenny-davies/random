@@ -50,7 +50,7 @@ def main():
                 
             else:
                 # else print output
-                Label(window, text = f'You could make: {all_meals_speed}',
+                Label(window, text = f'You could make: {list(all_meals_speed.keys())}',
                       font = ('Arial', 12)).pack()
 
 # create labels and entry fields
